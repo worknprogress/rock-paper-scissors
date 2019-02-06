@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+	</head>
+	<body>
+	</body>
+	<script>
+		function computerPlay(num){
+			if (num <= 1) {
+				return "rock";
+			}
+			else if (num > 1 && num <= 2) {
+				return "paper";
+			}
+			else {
+				return "scissors";
+			}
+		}
+
+		function playerPlay(str){
+			let strs = str.toLowerCase();
+			return (strs == "rock" || strs == "paper" || strs == "scissors") ? strs : "Please enter rock paper or scissors";
+		}
+
+		function sim(a, b){
+			if(((a == "rock") && (b == "scissors")) || ((a == "scissors") && (b == "paper")) || ((a == "paper") && (b == "rock"))){
+				return "You win";
+
+			}
+			else{
+				return "You lose";
+			}
+		}
+
+		function game(){
+			let pscore = cscore = 0;
+
+			let playerSelection = prompt("rock, paper or scissors?" );
+			let res = sim(playerPlay(playerSelection),computerPlay(Math.random() * 3));
+			console.log(res);
+			(res == "You lose") ? cscore++ : pscore++;
+			playerSelection = prompt("rock, paper or scissors?");
+			res = sim(playerPlay(playerSelection),computerPlay(Math.random() * 3));
+			console.log(res);
+			(res == "You lose") ? cscore++ : pscore++;
+			playerSelection = prompt("rock, paper or scissors?");
+			res = sim(playerPlay(playerSelection),computerPlay(Math.random() * 3));
+			console.log(res);
+			(res == "You lose") ? cscore++ : pscore++;
+			console.log("Final score: Computer: " + cscore + " You: " + pscore);
+		}
+		 
+	</script>
+	</html>
+		}
